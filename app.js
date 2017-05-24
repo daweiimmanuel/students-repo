@@ -17,7 +17,7 @@ var flash = require('express-flash');
     
 var User = require("./models/user");
     
-mongoose.connect("mongodb://root:22kEqgdohbuK@localhost/students-repo");
+mongoose.connect("mongodb://localhost/students-repo");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.json());
@@ -71,7 +71,7 @@ app.get("/register", function(req, res){
     res.render("register");
 });
 
-app.post("/register", function(req, res){
+app.post("/register", isLoggedIn, function(req, res){
     var user = new User({
       username: req.body.username,
       email: req.body.email,
