@@ -17,7 +17,7 @@ var flash = require('express-flash');
     
 var User = require("./models/user");
     
-mongoose.connect("mongodb://root:22kEqgdohbuK@http://ec2-13-228-23-77.ap-southeast-1.compute.amazonaws.com:27017/students-repo");
+mongoose.connect("mongodb://root:22kEqgdohbuK@localhost/students-repo");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.json());
