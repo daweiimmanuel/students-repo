@@ -71,7 +71,7 @@ app.get("/register", function(req, res){
     res.render("register");
 });
 
-app.post("/register", isLoggedIn, function(req, res){
+app.post("/register", function(req, res){
     var user = new User({
       username: req.body.username,
       email: req.body.email,
