@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+    <div class="ui main container segment">
+        <h1 class="ui center aligned header">Add New Event</h1>
+        <form class="ui form" action="" method="POST">
+            <div class="field">
+                <label>Event Name</label>
+                <input type="text" name="eventName" placeholder="Event Name">
+            </div>
+            <div class="field">
+                <label>Event Date</label>
+                <input type="date" name="eventDate" placeholder="mm/dd/yyyy">
+            </div>
+            <div class="ui error message"></div>
+            <button class="ui primary button" type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        $('.ui.form')
+          .form({
+            fields: {
+              name: {
+                identifier: 'eventName',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter Event Name'
+                  }
+                ]
+              },
+              date: {
+                identifier: 'eventDate',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter Event Date'
+                  }
+                ]
+              }
+            }
+          })
+        ;
+    </script>
+
+<% include ../partials/footer %>

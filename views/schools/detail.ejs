@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+    <div class="ui main container segment">
+        <p>
+        <form class="ui form" action="<%= school.url %>" method="GET">
+          <div class="field">
+              <div class="ui action input">
+                  <input type="text" name="search" placeholder="Student search...">
+                  <div class="ui button">
+                    Search
+                  </div>
+              </div>
+          </div>
+        </form>
+        </p>
+        <h1 class="ui center aligned header">Students whose studying at <%= school.schoolName %></h1>
+        <div class="ui cards">
+            <%school_students.forEach(function(student) { %>
+                <div class="card">
+                    <div class="content">
+                        <a href="<%= student.url %>">
+                            <div class="header">
+                                <%= student.name%>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <% })%>
+        </div>
+        <br>
+        <div class="ui container">
+            <a href="<%= school.url %>/delete">
+                <button class="ui red button" type="submit">Delete School</button>
+            </a>
+            <a href="<%= school.url %>/update">
+                <button class="ui orange button" type="submit">Update School</button>
+            </a>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

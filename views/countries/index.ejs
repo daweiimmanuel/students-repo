@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+    <div class="ui main container segment">
+        <h1 class="ui center aligned header">Countries</h1>
+        <div class="ui cards">
+            <%countries.forEach(function(country) { %>
+                <div class="card">
+                    <div class="content">
+                        <a href="<%= country.url %>">
+                            <div class="header">
+                                <%= country.countryName%>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <% })%>
+        </div>
+        <br>
+        <div class="ui container">
+            <a href="/catalog/country/create">
+                <button class="ui primary button" type="submit">Add New Country</button>
+            </a>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

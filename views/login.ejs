@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Data Repository</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+        <link  rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    </head>
+    <body>
+    <div class="ui middle aligned center aligned grid">
+      <div class="column">
+        <h2 class="ui image header">
+          <div class="content">
+            Sign in to your account
+          </div>
+        </h2>
+        <form action="/login" method="POST" class="ui large form">
+          <div class="ui stacked secondary  segment">
+            <div class="field">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="field">
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <div class="ui fluid large blue submit button">Login</div>
+          </div>
+    
+          <div class="ui error message"></div>
+    
+        </form>
+        <% if(error && error.length > 0) { %>
+            <div class="ui error message">
+                <p><%= error %></p>
+            </div>
+        <% } %>
+        <% if(info && info.length > 0) { %>
+            <div class="ui teal message">
+                <p><%= info %></p>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0) { %>
+            <div class="ui positive message">
+                <p><%= success %></p>
+            </div>
+        <% } %>
+        <div class="ui message">
+          <a href="/forgot">Forgot Password?</a>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+        $('.ui.form')
+          .form({
+            fields: {
+              name: {
+                identifier: 'username',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter Username'
+                  }
+                ]
+              },
+              password: {
+                identifier: 'password',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter Password'
+                  }
+                ]
+              }
+            }
+          })
+        ;
+    </script>
+    
+    
+        
+    </body>
+</html>

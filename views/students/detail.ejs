@@ -1,0 +1,145 @@
+<% include ../partials/header %>
+    <div class="ui main container segment">
+        <h1 class="ui center aligned header"><%= student.name %>'s Detail</h1>
+        <div class="ui items">
+            <div class="item">
+                <div class="middle aligned content">
+                    Name: <%= student.name%>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Address: <%= student.address %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Date of Birth: <%= student.dob_formatted %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    City: <%= student.city %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Telephone: <%= student.telephone %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Mobile No: <%= student.mobile %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    BB PIN: <%= student.bbPin %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    LINE ID: <%= student.lineId %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    E-mail: <%= student.email %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Parent's Name: <%= student.parentName %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Parents' Mobile No: <%= student.parentMobile %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Current School: <a href="<%= student.currentSchool.url %>"><%= student.currentSchool.schoolName %></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Current Grade: <%= student.currentGrade %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    English Proficiency Score: <%= student.englishScore %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Notes: <%= student.notes %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Countries: 
+                    <% student.country.forEach(function(country) { %>
+                        <a href="<%= country.url %>"><%= country.countryName%></a>, 
+                    <% }) %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Majors: 
+                    <% student.major.forEach(function(major) { %>
+                        <a href="<%= major.url %>"><%= major.majorName%></a>, 
+                    <% }) %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Universities: 
+                    <% student.university.forEach(function(university) { %>
+                        <a href="<%= university.url %>"><%= university.universityName%></a>, 
+                    <% }) %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Counsellor Name: 
+                    <a href="<%= student.counsellor.url%>"><%= student.counsellor.counsellorName %></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Status: 
+                    <%= student.status %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Event's Name: 
+                    <a href="<%= student.event.url %>"><%= student.event.eventName %></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Event's Date: 
+                    <%= student.event.event_date_formatted %>
+                </div>
+            </div>
+            <div class="item">
+                <div class="middle aligned content">
+                    Rating: <a href="<%= student.rating.url %>"><div class="ui star rating" data-rating="<%= student.rating.rating %>" data-max-rating="3"></div></a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="ui container">
+            <a href="<%= student.url %>/delete">
+                <button class="ui red button" type="submit">Delete Student</button>
+            </a>
+            <a href="<%= student.url %>/update">
+                <button class="ui orange button" type="submit">Update Student</button>
+            </a>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

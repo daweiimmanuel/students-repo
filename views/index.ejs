@@ -1,0 +1,90 @@
+<% include ./partials/header %>
+    <div class="ui main container segment">
+      
+        <h1>
+            The Data Repository has the following record counts:
+        </h1>
+        <hr>
+        <% if(error && error.length > 0) { %>
+            <div class="ui error message">
+                <p><%= error %></p>
+            </div>
+        <% } %>
+        <% if(info && info.length > 0) { %>
+            <div class="ui teal message">
+                <p><%= info %></p>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0) { %>
+            <div class="ui positive message">
+                <p><%= success %></p>
+            </div>
+        <% } %>
+        <div class="ui statistics">
+          <div class="statistic">
+            <div class="value">
+              <%=data.student_count%>
+            </div>
+            <div class="label">
+              Students
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+              <%=data.counsellor_count%>
+            </div>
+            <div class="label">
+              Counsellors
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+              <%=data.country_count%>
+            </div>
+            <div class="label">
+              Countries
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+              <%=data.event_count%>
+            </div>
+            <div class="label">
+              Events
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+              <%=data.major_count%>
+            </div>
+            <div class="label">
+              Majors
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+              <%=data.rating_count%>
+            </div>
+            <div class="label">
+              Ratings
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+              <%=data.school_count%>
+            </div>
+            <div class="label">
+              Schools
+            </div>
+          </div>
+          <div class="statistic">
+            <div class="value">
+              <%=data.university_count%>
+            </div>
+            <div class="label">
+              Universities
+            </div>
+          </div>
+        </div>
+    </div>
+<% include ./partials/footer %>

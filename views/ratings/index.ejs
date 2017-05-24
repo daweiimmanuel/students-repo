@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+    <div class="ui main container segment">
+        <h1 class="ui center aligned header">Ratings</h1>
+        <div class="ui cards">
+            <%ratings.forEach(function(rating) { %>
+                <div class="card">
+                    <div class="content">
+                        <a href="<%= rating.url %>">
+                            <div class="header">
+                                Rating:
+                                <div class="ui star rating" data-rating="<%= rating.rating %>" data-max-rating="3"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <% })%>
+        </div>
+        <br>
+        <div class="ui container">
+            <a href="/catalog/rating/create">
+                <button class="ui primary button" type="submit">Add New Rating</button>
+            </a>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

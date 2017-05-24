@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+    <div class="ui main container segment">
+        <h1 class="ui center aligned header"><%= country.countryName %></h1>
+        <% if(country_students.length){ %>
+            <h2 class ="ui header">
+                Delete the following students before attempting to delete this country.
+            </h2>
+            <div class="ui cards">
+                <%country_students.forEach(function(student) { %>
+                    <div class="card">
+                        <div class="content">
+                            <a href="<%= student.url %>">
+                                <div class="header">
+                                    <%= student.name%>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                <% })%>
+            </div>
+        <% } else { %>
+            <h2 class="ui header">
+                Do you really want to delete this Country?
+            </h2>
+            <form class="ui form" action="" method="POST">
+                <input type="hidden" name="countryid" required="true" value="<%= country._id %>">
+                <button class="ui red button" type="submit">Delete Country</button>
+            </form>
+        <% } %>
+        
+    </div>
+
+<% include ../partials/footer %>

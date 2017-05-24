@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+    <div class="ui main container segment">
+        <h1 class="ui center aligned header">Universities</h1>
+        <div class="ui cards">
+            <%universities.forEach(function(university) { %>
+                <div class="card">
+                    <div class="content">
+                        <a href="<%= university.url %>">
+                            <div class="header">
+                                <%= university.universityName%>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <% })%>
+        </div>
+        <br>
+        <div class="ui container">
+            <a href="/catalog/university/create">
+                <button class="ui primary button" type="submit">Add New University</button>
+            </a>
+        </div>
+    </div>
+
+<% include ../partials/footer %>

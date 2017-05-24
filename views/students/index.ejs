@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+    <div class="ui main container segment">
+      <p>
+        <form class="ui form" action="/catalog/students" method="GET">
+          <div class="field">
+              <div class="ui action input">
+                  <input type="text" name="search" placeholder="Student search...">
+                  <div class="ui button">
+                    Search
+                  </div>
+              </div>
+          </div>
+        </form>
+      </p>
+      <h1 class="ui center aligned header">Students</h1>
+      <div class="ui cards">
+        <%list_students.forEach(function(student){ %>
+        <div class="card">
+          <div class="content">
+            <a href="<%= student.url %>"><h3 class="header"><%= student.name %></h3></a>
+          </div>
+          <div class="content">
+            <h4 class="ui subheader">Student</h4>
+            <div class="description">
+              <p><%= student.dob_formatted %></p>
+              <p><%= student.email %></p>
+            </div>
+          </div>
+          <div class="extra content">
+            Rating:
+            <div class="ui star rating" data-rating="<%= student.rating.rating %>" data-max-rating="3"></div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+      <br>
+      <div class="ui container">
+          <a href="/catalog/student/create">
+              <button class="ui primary button" type="submit">Add New Student</button>
+          </a>
+      </div>
+    </div>
+
+<% include ../partials/footer %>

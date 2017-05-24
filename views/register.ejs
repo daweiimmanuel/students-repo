@@ -1,0 +1,74 @@
+<% include ./partials/header %>
+    <div class="ui main container segment">
+        <h1 class="ui center aligned header">Add New User</h1>
+        <form class="ui form" action="/register" method="POST">
+            <div class="field">
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input type="text" name="email" placeholder="Email">
+            </div>
+            <div class="field">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <div class="ui error message"></div>
+            <button class="ui primary button" type="submit">Submit</button>
+            
+        </form>
+        <% if(error && error.length > 0) { %>
+            <div class="ui error message">
+                <p><%= error %></p>
+            </div>
+        <% } %>
+        <% if(info && info.length > 0) { %>
+            <div class="ui teal message">
+                <p><%= info %></p>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0) { %>
+            <div class="ui positive message">
+                <p><%= success %></p>
+            </div>
+        <% } %>
+    </div>
+    
+    <script>
+        $('.ui.form')
+          .form({
+            fields: {
+              name: {
+                identifier: 'username',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter Username'
+                  }
+                ]
+              },
+              email: {
+                identifier: 'email',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter Email address'
+                  }
+                ]
+              },
+              password: {
+                identifier: 'password',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter Password'
+                  }
+                ]
+              }
+            }
+          })
+        ;
+    </script>
+
+<% include ./partials/footer %>

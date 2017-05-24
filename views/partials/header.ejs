@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Data Repository</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js"></script>
+        <link  rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+        <script>
+            $(document)
+            .ready(function(){
+                  $('.ui.rating')
+                    .rating();
+            });
+        </script>
+    </head>
+    <body>
+        <div class="ui fixed blue inverted menu">
+            <div class="ui container">
+                <div class="header item"><i class="database icon"></i>Repository</div>
+                    <a href="/" class="item">Home</a>
+                    <a href="/catalog/students" class="item">Students</a>
+                    <div class="ui simple dropdown item">Categories<i class="dropdown icon"></i>
+                        <div class="menu">
+                          <a href="/catalog/counsellors" class="item">Counsellors</a>
+                          <a href="/catalog/countries" class="item">Countries</a>
+                          <a href="/catalog/events" class="item">Events</a>
+                          <a href="/catalog/majors" class="item">Majors</a>
+                          <a href="/catalog/ratings" class="item">Ratings</a>
+                          <a href="/catalog/schools" class="item">Schools</a>
+                          <a href="/catalog/universities" class="item">Universities</a>
+                        </div>
+                    </div>
+                    <div class="ui right simple dropdown item">Signed in as <%= currentUser.username %><i class="dropdown icon"></i>
+                        <div class="menu">
+                            <% if(currentUser.username === 'admin'){ %>
+                                <a href="/register" class="item">
+                                  Manage user
+                                </a>
+                                <a href="/logout" class="item">
+                                  Logout
+                                </a>
+                            <% } else { %>
+                                <a href="/logout" class="item">
+                                  Logout
+                                </a>
+                            <% } %>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    

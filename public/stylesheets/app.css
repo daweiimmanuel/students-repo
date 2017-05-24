@@ -1,0 +1,27 @@
+i.icon {
+    font-size: 2em;
+}
+
+.container.main {
+    margin-top: 7.0em;
+    
+}
+
+#search {
+    display: inline;
+}
+
+html {
+    height: 100%;
+    overflow: scroll;
+}
+
+body > .grid {
+      height: 100%;
+    }
+.image {
+  margin-top: -100px;
+}
+.column {
+  max-width: 450px;
+}

@@ -1,0 +1,273 @@
+<% include ../partials/header %>
+    <div class="ui main container segment">
+        <h1 class="ui center aligned header">Update <%= student.name %></h1>
+        <form class="ui form" action="" method="POST">
+            <div class="field">
+                <label>Student's Name</label>
+                <input type="text" name="name" value="<%= student.name %>">
+            </div>
+            <div class="field">
+                <label>Address</label>
+                <input type="text" name="address" value="<%= student.address %>">
+            </div>
+            <div class="field">
+                <label>Date of Birth</label>
+                <input type="date" name="date_of_birth" value="<%= student.dob_yyyy_mm_dd %>">
+            </div>
+            <div class="field">
+                <label>City</label>
+                <input type="text" name="city" value="<%= student.city %>">
+            </div>
+            <div class="field">
+                <label>Telephone</label>
+                <input type="text" name="telephone" value="<%= student.telephone %>">
+            </div>
+            <div class="field">
+                <label>Mobile Phone</label>
+                <input type="text" name="mobile" value="<%= student.mobile %>">
+            </div>
+            <div class="field">
+                <label>BB PIN</label>
+                <input type="text" name="bbPin" value="<%= student.bbPin %>">
+            </div>
+            <div class="field">
+                <label>LINE ID</label>
+                <input type="text" name="lineId" value="<%= student.lineId %>">
+            </div>
+            <div class="field">
+                <label>Email</label>
+                <input type="text" name="email" value="<%= student.email %>">
+            </div>
+            <div class="field">
+                <label>Parent's Name</label>
+                <input type="text" name="parentName" value="<%= student.parentName %>">
+            </div>
+            <div class="field">
+                <label>Parent's Mobile</label>
+                <input type="text" name="parentMobile" value="<%= student.parentMobile %>">
+            </div>
+            <div class="field">
+                <label>School Name</label>
+                <select name="currentSchool" class="ui search dropdown school">
+                    <option value="">School Name</option>
+                    <% schools.forEach(function(school){ %>
+                        <option value="<%= school._id%>"><%= school.schoolName%></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="field">
+                <label>Current Grade</label>
+                <input type="text" name="currentGrade" value="<%= student.currentGrade %>">
+            </div>
+            <div class="field">
+                <label>English Proficiency Score</label>
+                <input type="text" name="englishScore" value="<%= student.englishScore %>">
+            </div>
+            <div class="field">
+                <label>Notes</label>
+                <input type="text" name="notes" value="<%= student.notes %>">
+            </div>
+            <div class="field">
+                <label>Country</label>
+                <select name="country" multiple="" class="ui search dropdown country">
+                    <% countries.forEach(function(country){ %>
+                        <option value="<%= country._id %>"><%= country.countryName %></option>
+                    <% })%>
+                </select>
+            </div>
+            <div class="field">
+                <label>Major</label>
+                <select name="major" multiple="" class="ui search dropdown major">
+                    <% majors.forEach(function(major){ %>
+                        <option value="<%= major._id %>"><%= major.majorName %></option>
+                    <% })%>
+                </select>
+            </div>
+            <div class="field">
+                <label>University</label>
+                <select name="university" multiple="" class="ui search dropdown university">
+                    <% universities.forEach(function(university){ %>
+                        <option value="<%= university._id %>"><%= university.universityName %></option>
+                    <% })%>
+                </select>
+            </div>
+            <div class="field">
+                <label>Counsellor</label>
+                <select name="counsellor" class="ui search dropdown counsellor">
+                    <option value="">Counsellor</option>
+                    <% counsellors.forEach(function(counsellor){ %>
+                        <option value="<%= counsellor._id %>"><%= counsellor.counsellorName %></option>
+                    <% })%>
+                </select>
+            </div>
+            <div class="field">
+                <label>Rating</label>
+                <select name="rating" class="ui search dropdown rating">
+                    <option value="">Rating</option>
+                    <% ratings.forEach(function(rating){ %>
+                        <option value="<%= rating._id %>"><%= rating.rating %></option>
+                    <% })%>
+                </select>
+            </div>
+            <div class="field">
+                <label>Status</label>
+                <select name="status" class="ui search dropdown status">
+                    <option value="">Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Finished">Finished</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Event</label>
+                <select name="event" class="ui search dropdown event">
+                    <option>Event</option>
+                    <% events.forEach(function(event){ %>
+                        <option value="<%= event._id %>"><%= event.eventName %></option>
+                    <% })%>
+                </select>
+            </div>
+            <div class="ui error message"></div>
+            <button class="ui primary button" type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        $('.ui.form')
+          .form({
+            fields: {
+              name: {
+                identifier: 'name',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter Student\'s Name'
+                  }
+                ]
+              },
+              mobile: {
+                identifier: 'mobile',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter Mobile No'
+                  }
+                ]
+              },
+              email: {
+                identifier: 'email',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please enter Email'
+                  }
+                ]
+              },
+              counsellor: {
+                identifier: 'counsellor',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please choose one from Counsellor\'s list'
+                  }
+                ]
+              },
+              event: {
+                identifier: 'event',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please choose one from Event\'s list'
+                  }
+                ]
+              },
+              rating: {
+                identifier: 'rating',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please choose one from Rating\'s list'
+                  }
+                ]
+              },
+              university: {
+                identifier: 'university',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please choose one from University\'s list'
+                  }
+                ]
+              },
+              major: {
+                identifier: 'major',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please choose one from Major\'s list'
+                  }
+                ]
+              },
+              country: {
+                identifier: 'country',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please choose one from Country\'s list'
+                  }
+                ]
+              },
+              currentSchool: {
+                identifier: 'currentSchool',
+                rules: [
+                  {
+                    type   : 'empty',
+                    prompt : 'Please choose one from School\'s list'
+                  }
+                ]
+              },
+            }
+          })
+        ;
+        
+        $('.ui.dropdown.school')
+          .dropdown('set selected', '<%= student.currentSchool._id %>')
+        ;
+        
+        $('.ui.dropdown.country')
+          .dropdown('set selected', [<% country_list.forEach(function(country_list) { %>
+              '<%= country_list %>',
+              <% }) %> ])
+        ;
+        
+        $('.ui.dropdown.major')
+          .dropdown('set selected', [<% major_list.forEach(function(major_list) { %>
+              '<%= major_list %>',
+              <% }) %> ])
+        ;
+        
+        $('.ui.dropdown.university')
+          .dropdown('set selected', [<% university_list.forEach(function(university_list) { %>
+              '<%= university_list %>',
+              <% }) %> ])
+        ;
+        
+        $('.ui.dropdown.counsellor')
+          .dropdown('set selected', '<%= student.counsellor._id %>')
+        ;
+        
+        $('.ui.dropdown.rating')
+          .dropdown('set selected', '<%= student.rating._id %>')
+        ;
+        
+        $('.ui.dropdown.status')
+          .dropdown('set selected', '<%= student.status %>')
+        ;
+        
+        $('.ui.dropdown.event')
+          .dropdown('set selected', '<%= student.event._id %>')
+        ;
+        
+    </script>
+
+<% include ../partials/footer %>
