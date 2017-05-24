@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+
     <div class="ui main container segment">
         <h1 class="ui center aligned header">Add New User</h1>
         <form class="ui form" action="/register" method="POST">
@@ -34,41 +34,3 @@
             </div>
         <% } %>
     </div>
-    
-    <script>
-        $('.ui.form')
-          .form({
-            fields: {
-              name: {
-                identifier: 'username',
-                rules: [
-                  {
-                    type   : 'empty',
-                    prompt : 'Please enter Username'
-                  }
-                ]
-              },
-              email: {
-                identifier: 'email',
-                rules: [
-                  {
-                    type   : 'empty',
-                    prompt : 'Please enter Email address'
-                  }
-                ]
-              },
-              password: {
-                identifier: 'password',
-                rules: [
-                  {
-                    type   : 'empty',
-                    prompt : 'Please enter Password'
-                  }
-                ]
-              }
-            }
-          })
-        ;
-    </script>
-
-<% include ./partials/footer %>
